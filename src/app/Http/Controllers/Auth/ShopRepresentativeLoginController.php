@@ -13,7 +13,7 @@ class ShopRepresentativeLoginController extends Controller
 {
     public function showLoginForm()
     {
-        return view('Auth.shop_representative_login');
+        return view('auth.shop_representative_login');
     }
 
     public function login(LoginRequest $request)

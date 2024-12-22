@@ -13,7 +13,7 @@ class EvaluationController extends Controller
 {
     public function evaluation(Shop $shop)
     {
-        return view('Evaluation.evaluation', compact('shop'));
+        return view('evaluation.evaluation', compact('shop'));
     }
 
     public function store(EvaluationRequest $request, Shop $shop)
@@ -44,7 +44,7 @@ class EvaluationController extends Controller
         if ($evaluation->user_id !== Auth::id()) {
             abort(403);
         }
-        return view('Evaluation.edit', compact('evaluation'));
+        return view('evaluation.edit', compact('evaluation'));
     }
 
     public function update(UpdateEvaluationRequest $request, $id)
@@ -76,6 +76,6 @@ class EvaluationController extends Controller
     {
         $shop = Shop::findOrFail($shopId);
         $evaluations = Evaluation::where('shop_id', $shopId)->with('user')->get();
-        return view('Evaluation.index', compact('shop', 'evaluations'));
+        return view('evaluation.index', compact('shop', 'evaluations'));
     }
 }

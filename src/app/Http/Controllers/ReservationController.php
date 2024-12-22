@@ -31,7 +31,7 @@ class ReservationController extends Controller
 
     public function showThanksPage()
     {
-        return view('Payment.payment_thanks');
+        return view('payment.payment_thanks');
     }
 
     public function edit($id)

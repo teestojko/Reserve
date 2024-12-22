@@ -14,7 +14,7 @@ class ShopOwnerCreateController extends Controller
     public function create()
     {
         $shops = Shop::all();
-        return view('Admin.shop_edit', compact('shops'));
+        return view('admin.shop_edit', compact('shops'));
     }
 
     public function store(StoreShopRepresentativeRequest $request)

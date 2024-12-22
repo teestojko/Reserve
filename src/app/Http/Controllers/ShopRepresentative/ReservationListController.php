@@ -30,6 +30,6 @@ class ReservationListController extends Controller
             ->with('user')
             ->whereDate('reservation_date', $date)
             ->paginate(5);
-        return view('Representative.reservation_list', compact('reservations', 'date'));
+        return view('representative.reservation_list', compact('reservations', 'date'));
     }
 }

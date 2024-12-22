@@ -73,7 +73,7 @@ Route::prefix('shop_representative')->name('shop_representative.')->group(functi
 });
 Route::middleware('auth')->group(function () {
     Route::get('/thanks', function (Request $request) {
-        return view('Auth.verify_email');
+        return view('auth.verify_email');
     })->name('verification.notice');
 
     Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {

@@ -11,7 +11,7 @@ class EvaluationEditController extends Controller
     public function index()
     {
         $evaluations = Evaluation::all();
-        return view('Admin.evaluations_index', compact('evaluations'));
+        return view('admin.evaluations_index', compact('evaluations'));
     }
 
     public function destroy($id)

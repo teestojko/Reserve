@@ -18,14 +18,14 @@ class ShopRepresentativeController extends Controller
     public function dashboard()
         {
             $shop = Shop::where('id', auth('shop_representative')->user()->shop_id)->first();
-            return view('Representative.shop_representative_dashboard', compact('shop'));
+            return view('representative.shop_representative_dashboard', compact('shop'));
         }
 
     public function create()
     {
         $prefectures = Prefecture::all();
         $genres = Genre::all();
-        return view('Representative.shop_create', compact('prefectures', 'genres'));
+        return view('representative.shop_create', compact('prefectures', 'genres'));
     }
 
     public function store(ShopUpdateRequest $request)

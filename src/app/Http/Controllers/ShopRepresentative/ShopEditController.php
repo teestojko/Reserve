@@ -17,7 +17,7 @@ class ShopEditController extends Controller
         $shop = Shop::findOrFail($id);
         $prefectures = Prefecture::all();
         $genres = Genre::all();
-        return view('Representative.shop_update', compact('shop', 'prefectures', 'genres'));
+        return view('representative.shop_update', compact('shop', 'prefectures', 'genres'));
     }
 
     public function update(ShopUpdateRequest $request, $id)

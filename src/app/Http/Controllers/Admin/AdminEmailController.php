@@ -15,7 +15,7 @@ class AdminEmailController extends Controller
     public function showForm()
     {
         $users = User::all();
-        return view('Admin.send_email', compact('users'));
+        return view('admin.send_email', compact('users'));
     }
 
     public function sendEmail(AdminEmailRequest $request)

@@ -31,7 +31,7 @@ class UserNotification extends Mailable
      */
     public function build()
     {
-        return $this->view('Emails.user_notification')
+        return $this->view('emails.user_notification')
                     ->subject($this->subject)
                     ->with(['messageContent' => $this->message]);
     }

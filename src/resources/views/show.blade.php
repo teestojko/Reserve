@@ -2,7 +2,7 @@
     $today = now()->format('Y-m-d');
     $currentTime = now()->format('H:i');
 @endphp
-@extends('Layouts.app')
+@extends('layouts.app')
 
 @section('css')
     <link rel="stylesheet" href="{{ asset('css/show.css') }}">
