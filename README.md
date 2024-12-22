@@ -104,42 +104,21 @@ css 3
 
 # 環境構築
 
-
 git clone git@github.com:teestojko/Reserve.git
 
 ### dockerイメージ作成 起動
 
 docker-compose up -d --build
 
+### 次のコマンドでphpコンテナに移動して
 
-
-### homebrewをインストール
-
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-
-
-### php gdをインストール
-
-brew install php
-
-brew install gd
-
-
-
-### gdが有効になっているか確認
-
-php -m | grep gd
-
-### 有効になっていれば gd と表示される
-
-
+docker-compose exec php bash
 
 composer update
 
 composer install
 
-
+### プロジェクトのルートディレクトリ(src)に移動して
 
 ### .envの作成
 
@@ -147,19 +126,17 @@ cp .env.example .env
 
 ### (環境に合わせてパスワード等を設定してください)
 
-
-
 ### アプリケーションキーを作成
 
 php artisan key:generate
 
+### 下記で再度phpコンテナに移動して
 
+docker-compose exec php bash
 
 ### シンボリックリンクを作成
 
 php artisan storage:link
-
-
 
 ### マイグレーション＆シーディング
 
