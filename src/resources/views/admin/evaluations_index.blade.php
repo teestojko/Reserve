@@ -3,7 +3,7 @@
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}">
 <link rel="stylesheet" href="{{ asset('css/common.css') }}">
-<link rel="stylesheet" href="{{ asset('css/Admin/evaluations_index.css') }}">
+<link rel="stylesheet" href="{{ asset('css/admin/evaluations_index.css') }}">
 @endsection
 
 @section('content')
