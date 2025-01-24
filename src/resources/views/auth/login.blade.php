@@ -46,5 +46,10 @@
                 {{ $message }}
             @enderror
         </div>
+        <div class="admin_login_button">
+            <a href="{{ route('admin.login') }}" class="form_button_admin">
+                管理者ログイン
+            </a>
+        </div>
     </div>
 @endsection
