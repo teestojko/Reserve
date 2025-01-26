@@ -115,3 +115,39 @@
         margin: 8% 25%;
     }
 }
+
+.login_buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.login_button {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.admin_button {
+    background: linear-gradient(45deg, #007bff, #0056b3);
+    color: white;
+}
+
+.shop_representative_button {
+    background: linear-gradient(45deg, #28a745, #1e7e34);
+    color: white;
+}
+
+.login_button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    opacity: 0.9;
+}
+
