@@ -1,4 +1,12 @@
+.evaluation_edit{
+    width: 80vw;
+    min-height: 70vh;
+    text-align: center;
+    margin: 1% auto;
+}
+
 .container {
+    height: 85vh;
     max-width: 600px;
     margin: 10px auto;
     background-color: #f8f5ff;
@@ -7,17 +15,16 @@
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
-h2 {
+.edit_title {
     text-align: center;
     color: #ff8ba7;
     font-family: 'Arial', sans-serif;
-    margin-bottom: 25px;
+    margin: 0;
 }
 
 form {
     display: flex;
     flex-direction: column;
-    gap: 15px;
 }
 
 .form-group {
@@ -90,6 +97,42 @@ body {
 }
 
 .evaluation_image{
-    width: 300px;
-    height: 200px;
+    width: 150px;
+    height: 100px;
+}
+
+.shop_create_content{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: 12%;
+    margin: 2%;
+}
+
+.image_path_label{
+    width: 50%;
+    text-align: center;
+    align-content: center;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.5);
+    color: rgb(138, 138, 138);
+}
+
+#file_name{
+    width: 20%;
+    align-content: center;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.5);
+    color: rgb(138, 138, 138);
+    font-size: 0.7rem;
+}
+
+#image_path{
+    display: none;
+    cursor: pointer;
+}
+
+.error_list{
+    list-style: none;
 }

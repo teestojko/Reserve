@@ -7,12 +7,43 @@
 @endsection
 
 @section('content')
-<div class="container">
-    <h2>評価の編集</h2>
-    <form action="{{ route('evaluations-update', $evaluation->id) }}" method="POST" enctype="multipart/form-data">
-        @csrf
-        @method('PUT')
+<div class="evaluation_edit">
+    <div class="container">
+        <h2 class="edit_title">評価の編集</h2>
+        <form action="{{ route('evaluations-update', $evaluation->id) }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            @method('PUT')
 
+            <div class="form-group">
+                <label for="stars">星の数：</label>
+                <select name="stars" class="form-control">
+                    @for($i = 1; $i <= 5; $i++)
+                        <option value="{{ $i }}" {{ $evaluation->stars == $i ? 'selected' : '' }}>{{ $i }}</option>
+                    @endfor
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="comment">コメント：</label>
+                <textarea name="comment" class="form-control">{{ old('comment', $evaluation->comment) }}</textarea>
+            </div>
+
+            <div class="image_section">
+                @if($evaluation->image_path)
+                    <img src="{{ asset(str_replace('public/', 'storage/', $evaluation->image_path)) }}" alt="評価画像" class="evaluation_image">
+                @endif
+            </div>
+            <div class="shop_create_content">
+                <label class="image_path_label" for="image_path" >
+                    画像を選択
+                </label>
+                <input type="file" name="image_path" id="image_path">
+                <div id="file_name">
+                    選択ファイル名
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">更新</button>
+        </form>
         @if($errors->any())
             <div class="alert alert-danger">
                 <ul class="error-list">
@@ -22,30 +53,12 @@
                 </ul>
             </div>
         @endif
-
-        <div class="form-group">
-            <label for="stars">星の数：</label>
-            <select name="stars" class="form-control">
-                @for($i = 1; $i <= 5; $i++)
-                    <option value="{{ $i }}" {{ $evaluation->stars == $i ? 'selected' : '' }}>{{ $i }}</option>
-                @endfor
-            </select>
-        </div>
-
-        <div class="form-group">
-            <label for="comment">コメント：</label>
-            <textarea name="comment" class="form-control">{{ old('comment', $evaluation->comment) }}</textarea>
-        </div>
-
-        <div class="form-group">
-            <label for="image">画像：</label>
-            @if($evaluation->image_path)
-                <img src="{{ asset(str_replace('public/', 'storage/', $evaluation->image_path)) }}" alt="評価画像" class="evaluation_image">
-            @endif
-            <input type="file" name="image" class="form-control">
-        </div>
-
-        <button type="submit" class="btn btn-primary">更新</button>
-    </form>
+    </div>
 </div>
+    <script>
+        document.getElementById('image_path').addEventListener('change', function(){
+            const fileName = this.files[0].name;
+            document.getElementById('file_name').textContent = fileName;
+        });
+    </script>
 @endsection
