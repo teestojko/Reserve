@@ -88,3 +88,8 @@ body {
     font-family: 'Noto Sans JP', sans-serif;
     background-color: #fffdf0;
 }
+
+.evaluation_image{
+    width: 300px;
+    height: 200px;
+}

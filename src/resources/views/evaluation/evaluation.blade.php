@@ -89,11 +89,6 @@
                                 0/400 最大文字数
                             </div>
                         </div>
-                            @error('comment')
-                                <div class="alert_danger_comment">
-                                    {{ $message }}
-                                </div>
-                            @enderror
                         <div class="form_img">
                             <div class="form_img_title">
                                 画像を追加
@@ -122,9 +117,13 @@
                         {{ session('success') }}
                     </div>
                 @endif
-                @if($errors->has('custom_error'))
-                    <div class="alert_danger">
-                        {{ $errors->first('custom_error') }}
+                @if($errors->any())
+                    <div class="alert alert-danger">
+                        <ul class="error-list">
+                            @foreach ($errors->all() as $error)
+                                <li class="error-message"><i class="fas fa-exclamation-circle"></i> {{ $error }}</li>
+                            @endforeach
+                        </ul>
                     </div>
                 @endif
             </div>

@@ -39,6 +39,9 @@
 
         <div class="form-group">
             <label for="image">画像：</label>
+            @if($evaluation->image_path)
+                <img src="{{ asset(str_replace('public/', 'storage/', $evaluation->image_path)) }}" alt="評価画像" class="evaluation_image">
+            @endif
             <input type="file" name="image" class="form-control">
         </div>
 
