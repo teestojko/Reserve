@@ -21,24 +21,30 @@ class ImportController extends Controller
 
     public function store(CsvImportRequest $request)
     {
-        if ($request->hasFile('csv_file') && $request->file('csv_file')->isValid()) {
-            $csv = Reader::createFromPath($request->file('csv_file')->getPathname(), 'r');
-            $csv->setHeaderOffset(0);
-            $records = $csv->getRecords();
-            foreach ($records as $record) {
-                $prefecture = Prefecture::where('name', $record['地域'])->first();
-                $genre = Genre::where('name', $record['ジャンル'])->first();
-                Shop::create([
-                    'name' => $record['店舗名'],
-                    'prefecture_id' => $prefecture->id,
-                    'genre_id' => $genre->id,
-                    'detail' => $record['店舗概要'],
-                    'image_path' => $record['画像URL'],
-                ]);
+        $csv = Reader::createFromPath($request->file('csv_file')->getPathname(), 'r');
+        $csv->setHeaderOffset(0);
+        $records = $csv->getRecords();
+
+        foreach ($records as $record) {
+            $prefecture = Prefecture::where('name', $record['地域'])->first();
+            $genre = Genre::where('name', $record['ジャンル'])->first();
+
+            if (!$prefecture || !$genre) {
+                continue;
             }
-            return back()->with('success', 'CSVインポートが完了しました。');
-        } else {
-            return back()->withErrors(['csv_file' => 'CSVファイルを選択してください。']);
+
+            Shop::create([
+                'name' => $record['店舗名'],
+                'prefecture_id' => $prefecture->id,
+                'genre_id' => $genre->id,
+                'detail' => $record['店舗概要'],
+                'image_path' => $record['画像URL'],
+            ]);
         }
+
+        return back()->with('success', 'CSVインポートが完了しました。');
     }
+
 }
+
+

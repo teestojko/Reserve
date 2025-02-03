@@ -97,8 +97,13 @@ body {
 }
 
 .evaluation_image{
-    width: 150px;
-    height: 100px;
+    width: 50px;
+    height: 50px;
+}
+
+.image_content{
+    display: flex;
+    margin-bottom: 10%;
 }
 
 .shop_create_content{

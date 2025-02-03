@@ -26,7 +26,7 @@ class UpdateEvaluationRequest extends FormRequest
         return [
             'stars' => 'required|integer',
             'comment' => 'required|string|max:400',
-            'image' => 'nullable|image|max:2048',
+            'image_path' => 'nullable|image|max:2048',
         ];
     }
 
@@ -38,8 +38,10 @@ class UpdateEvaluationRequest extends FormRequest
             'comment.required' => 'コメントは必須です。',
             'comment.string' => 'コメントは文字列で入力してください。',
             'comment.max' => 'コメントは400文字以内で入力してください。',
-            'image.image' => 'アップロードされたファイルは画像である必要があります。',
-            'image.max' => '画像ファイルは2MB以下である必要があります。',
+            'image_path.image' => 'アップロードされたファイルは画像である必要があります。',
+            'image_path.max' => '画像ファイルは2MB以下である必要があります。',
         ];
     }
 }
+
+

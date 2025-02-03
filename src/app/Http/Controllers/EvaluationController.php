@@ -52,8 +52,8 @@ class EvaluationController extends Controller
             $evaluation = Evaluation::findOrFail($id);
             $evaluation->stars = $request->stars;
             $evaluation->comment = $request->comment;
-            if ($request->hasFile('image')) {
-                $path = $request->file('image')->store('evaluations', 'public');
+            if ($request->hasFile('image_path')) {
+                $path = $request->file('image_path')->store('evaluations', 'public');
                 $evaluation->image_path = $path;
             }
             $evaluation->save();

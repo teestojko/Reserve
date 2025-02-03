@@ -27,19 +27,20 @@
                 <label for="comment">コメント：</label>
                 <textarea name="comment" class="form-control">{{ old('comment', $evaluation->comment) }}</textarea>
             </div>
-
-            <div class="image_section">
-                @if($evaluation->image_path)
-                    <img src="{{ asset(str_replace('public/', 'storage/', $evaluation->image_path)) }}" alt="評価画像" class="evaluation_image">
-                @endif
-            </div>
-            <div class="shop_create_content">
-                <label class="image_path_label" for="image_path" >
-                    画像を選択
-                </label>
-                <input type="file" name="image_path" id="image_path">
-                <div id="file_name">
-                    選択ファイル名
+            <div class="image_content">
+                <div class="image_section">
+                    @if($evaluation->image_path)
+                        <img src="{{ asset('storage/' . $evaluation->image_path) }}" alt="評価画像" class="evaluation_image">
+                    @endif
+                </div>
+                <div class="shop_create_content">
+                    <label class="image_path_label" for="image_path" >
+                        画像を選択
+                    </label>
+                    <input type="file" name="image_path" id="image_path">
+                    <div id="file_name">
+                        選択ファイル名
+                    </div>
                 </div>
             </div>
             <button type="submit" class="btn btn-primary">更新</button>

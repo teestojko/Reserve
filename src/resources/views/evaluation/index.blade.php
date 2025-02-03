@@ -30,7 +30,7 @@
                         </div>
                         <p class="evaluation_comment">{{ $evaluation->comment }}</p>
                         @if($evaluation->image_path)
-                            <img src="{{ asset(str_replace('public/', 'storage/', $evaluation->image_path)) }}" alt="評価画像" class="evaluation_image">
+                            <img src="{{ asset('storage/' . $evaluation->image_path) }}" alt="評価画像" class="evaluation_image">
                         @else
                             <p class="no_image_text">画像はありません</p>
                         @endif
