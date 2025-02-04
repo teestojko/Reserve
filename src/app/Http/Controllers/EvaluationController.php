@@ -30,7 +30,7 @@ class EvaluationController extends Controller
         $evaluation->comment = $request->comment;
         $evaluation->stars = $request->stars;
         if ($request->hasFile('image_path')) {
-            $imagePath = $request->file('image_path')->store('public');
+            $imagePath = $request->file('image_path')->store('evaluations', 'public');
             $evaluation->image_path = $imagePath;
         }
         $evaluation->save();
