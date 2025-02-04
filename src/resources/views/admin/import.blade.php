@@ -15,7 +15,7 @@
         @csrf
         <div class="csv_input_container">
             <label for="csv_file" class="csv_input_label">CSVファイルを選択</label>
-            <input id="csv_file" class="csv_input" type="file" name="csv_file" accept=".csv">
+            <input id="csv_file" class="csv_input" type="file" name="csv_file">
         </div>
         <button class="csv_btn" type="submit">インポート</button>
     </form>
