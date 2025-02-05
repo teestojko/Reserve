@@ -44,8 +44,12 @@ class EvaluationController extends Controller
         if ($evaluation->user_id !== Auth::id()) {
             abort(403);
         }
-        return view('evaluation.edit', compact('evaluation'));
+
+        $shop = $evaluation->shop;
+
+        return view('evaluation.edit', compact('evaluation', 'shop'));
     }
+
 
     public function update(UpdateEvaluationRequest $request, $id)
         {

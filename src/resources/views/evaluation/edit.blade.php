@@ -9,6 +9,13 @@
 @section('content')
 <div class="evaluation_edit">
     <div class="container">
+
+        <div class="shop_back_btn">
+            <a href="{{ route('shops.show', ['shop' => $shop->id]) }}" class="shop_back_btn_link">
+                戻る
+            </a>
+        </div>
+        
         <h2 class="edit_title">評価の編集</h2>
         <form action="{{ route('evaluations-update', $evaluation->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
