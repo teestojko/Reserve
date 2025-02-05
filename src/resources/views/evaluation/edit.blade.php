@@ -33,15 +33,17 @@
                         <img src="{{ asset('storage/' . $evaluation->image_path) }}" alt="評価画像" class="evaluation_image">
                     @endif
                 </div>
-                <div class="shop_create_content">
-                    <label class="image_path_label" for="image_path" >
-                        画像を選択
-                    </label>
-                    <input type="file" name="image_path" id="image_path">
-                    <div id="file_name">
-                        選択ファイル名
+                <div class="shop_create_file">
+                    <div class="shop_create_content">
+                        <label class="image_path_label" for="image_path" >
+                            画像を選択
+                        </label>
+                        <input type="file" name="image_path" id="image_path">
                     </div>
                 </div>
+            </div>
+            <div id="file_name">
+                選択ファイル名
             </div>
             <button type="submit" class="btn btn-primary">更新</button>
         </form>
