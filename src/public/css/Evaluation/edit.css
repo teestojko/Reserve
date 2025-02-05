@@ -162,6 +162,10 @@ body {
     cursor: pointer;
 }
 
+.alert_success{
+    margin: 3%;
+}
+
 .error_list{
     list-style: none;
 }

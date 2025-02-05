@@ -61,8 +61,8 @@ class EvaluationController extends Controller
                 $evaluation->image_path = $path;
             }
             $evaluation->save();
-            return redirect()->route('shops.show', $evaluation->shop_id)
-                            ->with('success', '評価を更新しました。');
+            return back()
+            ->with('success', '口コミを更新しました');
         }
 
 

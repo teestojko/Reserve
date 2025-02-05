@@ -15,7 +15,7 @@
                 戻る
             </a>
         </div>
-        
+
         <h2 class="edit_title">評価の編集</h2>
         <form action="{{ route('evaluations-update', $evaluation->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
@@ -54,6 +54,11 @@
             </div>
             <button type="submit" class="btn btn-primary">更新</button>
         </form>
+        @if(session('success'))
+            <div class="alert_success">
+                {{ session('success') }}
+            </div>
+        @endif
         @if($errors->any())
             <div class="alert alert-danger">
                 <ul class="error-list">
